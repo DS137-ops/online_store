@@ -2,7 +2,7 @@ const User = require('../model/auth.model');
 const jwt = require('jsonwebtoken')
 const Blacklist = require('../model/Blacklist.model')
 const bcrypt = require('bcrypt');
-const RefreshToken = require('../model/refreshtoken.model');
+const RefreshToken = require('../model/RefreshToken.model');
 exports.registerUser = async (req, res) => {
     const { fullName, email, password, address , age } = req.body;
     try {
