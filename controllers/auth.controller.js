@@ -39,7 +39,7 @@ exports.postloginuser = async (req, res) => {
         }
         const token = jwt.sign(
             { id: user._id, email: user.email },
-            process.env.jwttoken,
+            '10010',
             { expiresIn: '1h' }
         );
         RefreshToken.create({token})

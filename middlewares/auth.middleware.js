@@ -21,7 +21,7 @@ exports.protect = (req, res, next) => {
 exports.ifUserExist = (req,res,next)=>{
     const token = req.header('Authorization')?.split(' ')[1]
     if(token){
-        jwt.verify(token , process.env.jwttoken , (err,decoded)=>{
+        jwt.verify(token , '10010' , (err,decoded)=>{
             if(!err){
                 return res.status(400).json({
                     success: false,
