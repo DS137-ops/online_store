@@ -14,7 +14,7 @@ app.use(helmet());
 app.use(cors());
 app.use(express.json());
 const DB_URI = 'mongodb://localhost:27017/pharma',
-Global = process.env.Global
+Global = "mongodb+srv://feadkaffoura:YcQJ6vJSgdBFwX9b@cluster0.v3b0sud.mongodb.net/store?retryWrites=true&w=majority&appName=Cluster0"
 mongoose
     .connect(Global)
     .then(() => console.log('MongoDB connected'))
