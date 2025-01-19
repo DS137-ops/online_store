@@ -43,10 +43,12 @@ exports.postloginuser = async (req, res) => {
             { expiresIn: '1h' }
         );
         RefreshToken.create({token})
+       const userinfo= await this.getUserInfo(user._id)
         res.status(200).json({
             success: true,
             message:'success' ,
             token,
+            userinfo
         });
     } catch (err) {
         console.error('Error during login:', err);
@@ -101,12 +103,12 @@ exports.logout = async (req,res,next)=>{
     res.status(200).json({success:true})
 }
 
-exports.getUserInfo = async(req,res)=>{
-    const id = req.params.id
+exports.getUserInfo = async(id)=>{
     if(id){
        const user = await User.findById(id)
-       res.status(200).json({success:true , message: user})
+       //res.status(200).json({success:true , user})
+       return user
     }else{
-        return res.status(404).json({success:false , message:'Invalid ID'})
+        //return res.status(404).json({success:false , message:'Invalid ID'})
     }
 }

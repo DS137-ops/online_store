@@ -37,5 +37,5 @@ router.put('/updateInfo/:id',[
 })
 
 router.post('/logout' , verifyToken.checkBlacklist , authController.logout)
-router.get('/getUserInfo/:id' , authController.getUserInfo)
+//router.get('/getUserInfo/:id' , authController.getUserInfo)
 module.exports = router;
