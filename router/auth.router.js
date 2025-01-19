@@ -3,7 +3,6 @@ const { body } = require('express-validator');
 const authController = require('../controllers/auth.controller');
 const verifyToken = require('../middlewares/auth.middleware')
 const router = express.Router();
-const jwt = require('jsonwebtoken')
 
 router.post(
     '/register',
@@ -38,5 +37,5 @@ router.put('/updateInfo/:id',[
 })
 
 router.post('/logout' , verifyToken.checkBlacklist , authController.logout)
-
+router.get('/getUserInfo/:id' , authController.getUserInfo)
 module.exports = router;

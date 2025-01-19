@@ -100,3 +100,13 @@ exports.logout = async (req,res,next)=>{
     
     res.status(200).json({success:true})
 }
+
+exports.getUserInfo = async(req,res)=>{
+    const id = req.params.id
+    if(id){
+       const user = await User.findById(id)
+       res.status(200).json({success:true , message: user})
+    }else{
+        return res.status(404).json({success:false , message:'Invalid ID'})
+    }
+}

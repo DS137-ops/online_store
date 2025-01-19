@@ -16,7 +16,7 @@ app.use(express.json());
 const DB_URI = 'mongodb://localhost:27017/pharma',
 Global = "mongodb+srv://feadkaffoura:YcQJ6vJSgdBFwX9b@cluster0.v3b0sud.mongodb.net/store?retryWrites=true&w=majority&appName=Cluster0"
 mongoose
-    .connect(Global)
+    .connect(DB_URI)
     .then(() => console.log('MongoDB connected'))
     .catch((err) => console.error('MongoDB connection error:', err));
 app.use('/api', authRoutes);
